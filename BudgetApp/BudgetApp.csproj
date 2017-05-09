@@ -224,11 +224,48 @@
     <Compile Include="Migrations\201705090141521_AddTransaction_TryAgain.Designer.cs">
       <DependentUpon>201705090141521_AddTransaction_TryAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705091755029_AddingUserInfo_UpdateId.cs" />
+    <Compile Include="Migrations\201705091755029_AddingUserInfo_UpdateId.Designer.cs">
+      <DependentUpon>201705091755029_AddingUserInfo_UpdateId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091811015_UpdateTransactionIdSecondTry.cs" />
+    <Compile Include="Migrations\201705091811015_UpdateTransactionIdSecondTry.Designer.cs">
+      <DependentUpon>201705091811015_UpdateTransactionIdSecondTry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091825359_AddingTransactionNote.cs" />
+    <Compile Include="Migrations\201705091825359_AddingTransactionNote.Designer.cs">
+      <DependentUpon>201705091825359_AddingTransactionNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091829431_AddForeignKey.cs" />
+    <Compile Include="Migrations\201705091829431_AddForeignKey.Designer.cs">
+      <DependentUpon>201705091829431_AddForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091832111_AddForeignKey1.cs" />
+    <Compile Include="Migrations\201705091832111_AddForeignKey1.Designer.cs">
+      <DependentUpon>201705091832111_AddForeignKey1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091941185_AddForeignKeyTag.cs" />
+    <Compile Include="Migrations\201705091941185_AddForeignKeyTag.Designer.cs">
+      <DependentUpon>201705091941185_AddForeignKeyTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091950510_AddCollection.cs" />
+    <Compile Include="Migrations\201705091950510_AddCollection.Designer.cs">
+      <DependentUpon>201705091950510_AddCollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091954085_MakeUserIDRequired.cs" />
+    <Compile Include="Migrations\201705091954085_MakeUserIDRequired.Designer.cs">
+      <DependentUpon>201705091954085_MakeUserIDRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091958186_AddingSPlural.cs" />
+    <Compile Include="Migrations\201705091958186_AddingSPlural.Designer.cs">
+      <DependentUpon>201705091958186_AddingSPlural.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\UserDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -310,6 +347,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705090141521_AddTransaction_TryAgain.resx">
       <DependentUpon>201705090141521_AddTransaction_TryAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091755029_AddingUserInfo_UpdateId.resx">
+      <DependentUpon>201705091755029_AddingUserInfo_UpdateId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091811015_UpdateTransactionIdSecondTry.resx">
+      <DependentUpon>201705091811015_UpdateTransactionIdSecondTry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091825359_AddingTransactionNote.resx">
+      <DependentUpon>201705091825359_AddingTransactionNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091829431_AddForeignKey.resx">
+      <DependentUpon>201705091829431_AddForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091832111_AddForeignKey1.resx">
+      <DependentUpon>201705091832111_AddForeignKey1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091941185_AddForeignKeyTag.resx">
+      <DependentUpon>201705091941185_AddForeignKeyTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091950510_AddCollection.resx">
+      <DependentUpon>201705091950510_AddCollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091954085_MakeUserIDRequired.resx">
+      <DependentUpon>201705091954085_MakeUserIDRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091958186_AddingSPlural.resx">
+      <DependentUpon>201705091958186_AddingSPlural.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

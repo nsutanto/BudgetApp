@@ -19,14 +19,14 @@ namespace BudgetApp.Controllers
         // GET: api/Transactions
         public IQueryable<Transaction> GetTransaction()
         {
-            return db.Transaction;
+            return db.Transactions;
         }
 
         // GET: api/Transactions/5
         [ResponseType(typeof(Transaction))]
         public IHttpActionResult GetTransaction(int id)
         {
-            Transaction transaction = db.Transaction.Find(id);
+            Transaction transaction = db.Transactions.Find(id);
             if (transaction == null)
             {
                 return NotFound();
@@ -44,7 +44,7 @@ namespace BudgetApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != transaction.Id)
+            if (id != transaction.TransactionId)
             {
                 return BadRequest();
             }
@@ -79,23 +79,23 @@ namespace BudgetApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Transaction.Add(transaction);
+            db.Transactions.Add(transaction);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = transaction.Id }, transaction);
+            return CreatedAtRoute("DefaultApi", new { id = transaction.TransactionId }, transaction);
         }
 
         // DELETE: api/Transactions/5
         [ResponseType(typeof(Transaction))]
         public IHttpActionResult DeleteTransaction(int id)
         {
-            Transaction transaction = db.Transaction.Find(id);
+            Transaction transaction = db.Transactions.Find(id);
             if (transaction == null)
             {
                 return NotFound();
             }
 
-            db.Transaction.Remove(transaction);
+            db.Transactions.Remove(transaction);
             db.SaveChanges();
 
             return Ok(transaction);
@@ -112,7 +112,7 @@ namespace BudgetApp.Controllers
 
         private bool TransactionExists(int id)
         {
-            return db.Transaction.Count(e => e.Id == id) > 0;
+            return db.Transactions.Count(e => e.TransactionId == id) > 0;
         }
     }
 }
