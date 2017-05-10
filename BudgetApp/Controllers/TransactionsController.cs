@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BudgetApp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BudgetApp.Controllers
 {
@@ -17,9 +18,16 @@ namespace BudgetApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Transactions
-        public IQueryable<Transaction> GetTransactions()
+        //public IQueryable<Transaction> GetTransactions()
+        public IEnumerable<Transaction> GetTransactions()
         {
-            return db.Transactions;
+            List<Transaction> transactionList = db.Transactions.ToList();
+            List<ApplicationUser> userList = db.Users.ToList();
+            var user = db.Users.SingleOrDefault(c => c.SecretToken == 963788571);
+            var userId = user.Id;
+            var transacationList = db.Transactions.Where(c => c.ApplicationUser.Id == userId).ToList();
+            return transactionList;
+
         }
 
         // GET: api/Transactions/5

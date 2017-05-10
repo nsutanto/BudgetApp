@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BudgetApp.Models
 {
@@ -39,5 +40,27 @@ namespace BudgetApp.Models
         public string LoginProvider { get; set; }
 
         public string ProviderKey { get; set; }
+    }
+
+
+    public class LoginViewModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+
+    public class LoginTokenModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        public int Token { get; set; }
     }
 }

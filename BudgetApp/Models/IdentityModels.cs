@@ -13,6 +13,8 @@ namespace BudgetApp.Models
     {
         public virtual ICollection<Transaction> Transactions { get; set; }
 
+        public int SecretToken { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -26,6 +28,8 @@ namespace BudgetApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Transaction> Transactions { get; set; }
+
+        public DbSet<UserInfo> UserInfos { get; set; }
         
 
         public ApplicationDbContext()

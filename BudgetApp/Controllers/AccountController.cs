@@ -16,18 +16,40 @@ using Microsoft.Owin.Security.OAuth;
 using BudgetApp.Models;
 using BudgetApp.Providers;
 using BudgetApp.Results;
+using static BudgetApp.ApplicationUserManager;
+using System.Linq;
 
 namespace BudgetApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
+      
 
         public AccountController()
         {
+        }
+
+        // GET /Account/LoginByToken
+        [Route("LoginByToken")]
+        public IHttpActionResult LoginByToken(LoginTokenModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationDbContext db = new ApplicationDbContext();
+
+            List<ApplicationUser> userList = db.Users.ToList();
+            var user = db.Users.SingleOrDefault(c => c.SecretToken == model.Token && c.Email == model.Email);
+
+            if (user == null)
+                return BadRequest();
+            else
+                return Ok(user);
         }
 
         public AccountController(ApplicationUserManager userManager,
@@ -328,7 +350,9 @@ namespace BudgetApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            Random rnd = new Random();
+            int secretTokenRnd = rnd.Next();
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, SecretToken = secretTokenRnd };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -337,7 +361,9 @@ namespace BudgetApp.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            UserInfo userInfo = new UserInfo { Id = secretTokenRnd };
+
+            return Ok(userInfo);
         }
 
         // POST api/Account/RegisterExternal
