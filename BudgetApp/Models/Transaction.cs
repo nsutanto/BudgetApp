@@ -9,12 +9,9 @@ namespace BudgetApp.Models
 {
     public class Transaction
     {
-        public int TransactionId { get; set; }
+        public int Id { get; set; }
 
-        // Foreign Key
-        [Required]
-        public int UserDetailId { get; set; }
-        public virtual UserDetail UserDetail {get; set;}
+        public virtual ApplicationUser ApplicationUser { get; set;}
 
         public string Name { get; set; }
 

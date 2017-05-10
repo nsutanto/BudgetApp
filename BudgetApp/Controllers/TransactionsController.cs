@@ -17,7 +17,7 @@ namespace BudgetApp.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Transactions
-        public IQueryable<Transaction> GetTransaction()
+        public IQueryable<Transaction> GetTransactions()
         {
             return db.Transactions;
         }
@@ -44,7 +44,7 @@ namespace BudgetApp.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != transaction.TransactionId)
+            if (id != transaction.Id)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace BudgetApp.Controllers
             db.Transactions.Add(transaction);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = transaction.TransactionId }, transaction);
+            return CreatedAtRoute("DefaultApi", new { id = transaction.Id }, transaction);
         }
 
         // DELETE: api/Transactions/5
@@ -112,7 +112,7 @@ namespace BudgetApp.Controllers
 
         private bool TransactionExists(int id)
         {
-            return db.Transactions.Count(e => e.TransactionId == id) > 0;
+            return db.Transactions.Count(e => e.Id == id) > 0;
         }
     }
 }
