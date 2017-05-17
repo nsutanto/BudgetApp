@@ -33,7 +33,7 @@ namespace ShoppingApp.Controllers
         {
         }
 
-        // GET /Account/LoginByToken
+        // GET LoginByToken
         [Route("LoginByToken")]
         public IHttpActionResult LoginByToken(LoginTokenModel model)
         {
@@ -44,12 +44,15 @@ namespace ShoppingApp.Controllers
             ApplicationDbContext db = new ApplicationDbContext();
 
             List<ApplicationUser> userList = db.Users.ToList();
-            var user = db.Users.SingleOrDefault(c => c.SecretToken == model.Token && c.Email == model.Email);
+            var user = db.Users.SingleOrDefault(c => c.Email == model.Email);
 
-            if (user == null)
+            if (user == null) { 
                 return BadRequest();
-            else
-                return Ok(user);
+            }
+            else {
+                UserInfo userInfo = new UserInfo { Id = user.SecretToken };
+                return Ok(userInfo);
+            }
         }
 
         public AccountController(ApplicationUserManager userManager,

@@ -60,7 +60,7 @@ namespace ShoppingApp.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
-        public int Token { get; set; }
+        //[Required]
+        //public int Token { get; set; }
     }
 }

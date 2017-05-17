@@ -491,6 +491,10 @@
     <Compile Include="Migrations\201705120122249_AddUserToShoppingItem.Designer.cs">
       <DependentUpon>201705120122249_AddUserToShoppingItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705170030484_RemoveTokenFromLogin.cs" />
+    <Compile Include="Migrations\201705170030484_RemoveTokenFromLogin.Designer.cs">
+      <DependentUpon>201705170030484_RemoveTokenFromLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -589,6 +593,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705120122249_AddUserToShoppingItem.resx">
       <DependentUpon>201705120122249_AddUserToShoppingItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705170030484_RemoveTokenFromLogin.resx">
+      <DependentUpon>201705170030484_RemoveTokenFromLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
